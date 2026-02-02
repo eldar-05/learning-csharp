@@ -44,7 +44,7 @@ namespace HelloWorld
             int populationDensity = Convert.ToInt32(Console.ReadLine());
 
             //thernary operator
-            if(populationDensity < 100)
+            if (populationDensity < 100)
             {
                 Console.WriteLine("Low");
             }
@@ -59,15 +59,13 @@ namespace HelloWorld
 
 
             //practice 1.5 loops
-            //bool running = true;
+            bool running = true;
             int count = 0;
             int sum = 0;
             while (true)
             {
                 Console.WriteLine("Give me area");
-                int user_input_area = Console.Read();
-                Console.ReadLine();
-
+                int user_input_area = Convert.ToInt32(Console.ReadLine());
                 if (user_input_area == 0)
                 {
                     running = false;
@@ -78,9 +76,7 @@ namespace HelloWorld
             }
             Console.WriteLine("Total amount " + count);
             Console.WriteLine("Total sum " + sum);
-
             Console.ReadLine();
-
 
         }
     }
