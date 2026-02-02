@@ -61,6 +61,8 @@ namespace HelloWorld
 
             //thernary operator
             Console.WriteLine((populationDensity > 100) ? ((populationDensity > 500) ? ("High") : ("Medium")) : ("Low"));
+            Console.ReadLine();
         }
     }
+
 }
