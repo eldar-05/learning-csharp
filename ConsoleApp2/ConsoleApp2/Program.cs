@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 
 namespace HelloWorld
 {
-    class HomeWork1
+    class Program
     {
         static void Main(string[] args)
         {
@@ -29,8 +29,7 @@ namespace HelloWorld
             Console.WriteLine(isReadyForSale);
 
             Console.WriteLine("Area :");
-            double area = Console.Read();
-            Console.ReadLine();
+            double area = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Has water? ");
             bool userHasWater = Convert.ToBoolean(Console.ReadLine());
@@ -42,27 +41,47 @@ namespace HelloWorld
 
             //practice 1.4
             Console.WriteLine("Population dencity: ");
-            int populationDensity = Console.Read();
-            switch (populationDensity)
-            {
-                case < 100:
-                    Console.WriteLine("Low");
-                    break;
-                case >= 100 and <= 500:
-                    Console.WriteLine("Medium");
-                    break;
-                case > 500:
-                    Console.WriteLine("High");
-                    break;
-                default:
-                    Console.WriteLine("What is this? That is not population number!!!");
-                    break;
-            }
+            int populationDensity = Convert.ToInt32(Console.ReadLine());
 
             //thernary operator
-            Console.WriteLine((populationDensity > 100) ? ((populationDensity > 500) ? ("High") : ("Medium")) : ("Low"));
+            if(populationDensity < 100)
+            {
+                Console.WriteLine("Low");
+            }
+            else if (populationDensity >= 100 && populationDensity <= 500)
+            {
+                Console.WriteLine("Medium");
+            }
+            else
+            {
+                Console.WriteLine("High");
+            }
+
+
+            //practice 1.5 loops
+            //bool running = true;
+            int count = 0;
+            int sum = 0;
+            while (true)
+            {
+                Console.WriteLine("Give me area");
+                int user_input_area = Console.Read();
+                Console.ReadLine();
+
+                if (user_input_area == 0)
+                {
+                    running = false;
+                    break;
+                }
+                count++;
+                sum += user_input_area;
+            }
+            Console.WriteLine("Total amount " + count);
+            Console.WriteLine("Total sum " + sum);
+
             Console.ReadLine();
+
+
         }
     }
-
 }
