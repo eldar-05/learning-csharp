@@ -13,10 +13,12 @@ class Program
         ve.setMaxSpeed(200);
         ve.setLisencePlate("VKENVSNFKCJ-4838563");
         ve.setBatteryKWh(500);
-        ve.updateLocation();
 
 
         ve.getInfo();
+        ve.updateLocation();
+        ve.refuel();
+
         Console.WriteLine(" ");
 
         GasolineTruck truck = new GasolineTruck();
@@ -26,6 +28,7 @@ class Program
         truck.setCargoCapacity(10000);
 
         truck.getInfo();
+        truck.refuel();
         Console.ReadLine();
     }
 }
@@ -85,7 +88,7 @@ abstract class Vehicle
     }
 }
 
-class ElectricBus : Vehicle
+class ElectricBus : Vehicle, GPS_Trackable
 {
     private int batteryKWh;
 
@@ -109,9 +112,14 @@ class ElectricBus : Vehicle
         base.getInfo();
         Console.WriteLine("battery cap"+ batteryKWh);
     }
+
+    public void updateLocation()
+    {
+        Console.WriteLine("yes it's gps trackabel");
+    }
 }
 
-class GasolineTruck : Vehicle, GPS_Trackable
+class GasolineTruck : Vehicle
 {
     private int cargoCapacity;
 
@@ -135,14 +143,9 @@ class GasolineTruck : Vehicle, GPS_Trackable
         base.getInfo();
         Console.WriteLine("Capacity cargo: " + cargoCapacity);
     }
-
-    public void updateLocation()
-    {
-        Console.WriteLine("yes it's gps trackabel");
-    }
 }
 
 interface GPS_Trackable
 {
-    public void updateLocation();
+    void updateLocation();
 }
